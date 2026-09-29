@@ -1,0 +1,300 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyOtXnWk/SkOIfeSoDVP3v9Z",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/nakulpersonal324-lab/Innovation-Lab/blob/main/Lab_Session-1\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import pandas as pd"
+      ],
+      "metadata": {
+        "id": "cVPJBRgFxwcl"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "df = pd.read_csv(\"student_visualization_dataset .csv\")"
+      ],
+      "metadata": {
+        "id": "ATCnrpft0Ju7"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "print(df.head(15))"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "wkQqjR_70ozG",
+        "outputId": "0b9e5bcc-53ae-4497-8867-5f84f27e7884"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "    Student_ID Student_Name  Study_Hours  Attendance_Percent  \\\n",
+            "0            1        Aarav            2                  78   \n",
+            "1            2         Diya            3                  85   \n",
+            "2            3        Arjun            4                  88   \n",
+            "3            4       Ananya            5                  92   \n",
+            "4            5        Vijay            1                  65   \n",
+            "5            6        Meera            6                  95   \n",
+            "6            7        Rahul            3                  80   \n",
+            "7            8        Priya            7                  96   \n",
+            "8            9        Kavin            2                  72   \n",
+            "9           10        Sneha            5                  90   \n",
+            "10          11        Rohan            4                  86   \n",
+            "11          12      Keerthi            8                  98   \n",
+            "12          13        Manoj            1                  60   \n",
+            "13          14         Nila            6                  93   \n",
+            "14          15       Sanjay            3                  75   \n",
+            "\n",
+            "    Screen_Time_Hours  Sleep_Hours  Marks  \n",
+            "0                   6            8     62  \n",
+            "1                   5            8     70  \n",
+            "2                   4            7     78  \n",
+            "3                   3            8     85  \n",
+            "4                   8            6     48  \n",
+            "5                   3            9     91  \n",
+            "6                   6            7     66  \n",
+            "7                   2            9     94  \n",
+            "8                   7            7     55  \n",
+            "9                   4            8     84  \n",
+            "10                  5            8     76  \n",
+            "11                  2            9     97  \n",
+            "12                  9            6     42  \n",
+            "13                  3            8     89  \n",
+            "14                  7            7     61  \n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "print(df.shape)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "5W-FH8Xv0yUR",
+        "outputId": "349847d4-b8b6-4833-d824-6d122444725a"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "(30, 7)\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "print(df.info)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "GT91Lqu-02Cn",
+        "outputId": "831cfd2d-a041-4c59-b234-b8f3586790d6"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "<bound method DataFrame.info of     Student_ID Student_Name  Study_Hours  Attendance_Percent  \\\n",
+            "0            1        Aarav            2                  78   \n",
+            "1            2         Diya            3                  85   \n",
+            "2            3        Arjun            4                  88   \n",
+            "3            4       Ananya            5                  92   \n",
+            "4            5        Vijay            1                  65   \n",
+            "5            6        Meera            6                  95   \n",
+            "6            7        Rahul            3                  80   \n",
+            "7            8        Priya            7                  96   \n",
+            "8            9        Kavin            2                  72   \n",
+            "9           10        Sneha            5                  90   \n",
+            "10          11        Rohan            4                  86   \n",
+            "11          12      Keerthi            8                  98   \n",
+            "12          13        Manoj            1                  60   \n",
+            "13          14         Nila            6                  93   \n",
+            "14          15       Sanjay            3                  75   \n",
+            "15          16       Harini            5                  89   \n",
+            "16          17       Dinesh            2                  68   \n",
+            "17          18      Lakshmi            7                  94   \n",
+            "18          19         Ajay            4                  83   \n",
+            "19          20        Pooja            6                  91   \n",
+            "20          21       Vishnu            2                  70   \n",
+            "21          22    Aishwarya            5                  87   \n",
+            "22          23        Gokul            3                  77   \n",
+            "23          24       Shreya            8                  97   \n",
+            "24          25        Surya            1                  63   \n",
+            "25          26        Divya            6                  92   \n",
+            "26          27       Naveen            4                  81   \n",
+            "27          28       Swetha            5                  90   \n",
+            "28          29      Karthik            2                  74   \n",
+            "29          30       Janani            7                  95   \n",
+            "\n",
+            "    Screen_Time_Hours  Sleep_Hours  Marks  \n",
+            "0                   6            8     62  \n",
+            "1                   5            8     70  \n",
+            "2                   4            7     78  \n",
+            "3                   3            8     85  \n",
+            "4                   8            6     48  \n",
+            "5                   3            9     91  \n",
+            "6                   6            7     66  \n",
+            "7                   2            9     94  \n",
+            "8                   7            7     55  \n",
+            "9                   4            8     84  \n",
+            "10                  5            8     76  \n",
+            "11                  2            9     97  \n",
+            "12                  9            6     42  \n",
+            "13                  3            8     89  \n",
+            "14                  7            7     61  \n",
+            "15                  4            8     82  \n",
+            "16                  8            6     51  \n",
+            "17                  2            9     92  \n",
+            "18                  5            7     73  \n",
+            "19                  3            8     87  \n",
+            "20                  8            7     53  \n",
+            "21                  4            8     80  \n",
+            "22                  6            7     64  \n",
+            "23                  2            9     96  \n",
+            "24                  9            6     45  \n",
+            "25                  3            8     88  \n",
+            "26                  5            7     71  \n",
+            "27                  4            8     83  \n",
+            "28                  7            7     57  \n",
+            "29                  2            9     93  >\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "print(df.describe)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "VYDOaNAF06Q6",
+        "outputId": "25792b76-3000-4fa6-bdfd-b6a81f73b786"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "<bound method NDFrame.describe of     Student_ID Student_Name  Study_Hours  Attendance_Percent  \\\n",
+            "0            1        Aarav            2                  78   \n",
+            "1            2         Diya            3                  85   \n",
+            "2            3        Arjun            4                  88   \n",
+            "3            4       Ananya            5                  92   \n",
+            "4            5        Vijay            1                  65   \n",
+            "5            6        Meera            6                  95   \n",
+            "6            7        Rahul            3                  80   \n",
+            "7            8        Priya            7                  96   \n",
+            "8            9        Kavin            2                  72   \n",
+            "9           10        Sneha            5                  90   \n",
+            "10          11        Rohan            4                  86   \n",
+            "11          12      Keerthi            8                  98   \n",
+            "12          13        Manoj            1                  60   \n",
+            "13          14         Nila            6                  93   \n",
+            "14          15       Sanjay            3                  75   \n",
+            "15          16       Harini            5                  89   \n",
+            "16          17       Dinesh            2                  68   \n",
+            "17          18      Lakshmi            7                  94   \n",
+            "18          19         Ajay            4                  83   \n",
+            "19          20        Pooja            6                  91   \n",
+            "20          21       Vishnu            2                  70   \n",
+            "21          22    Aishwarya            5                  87   \n",
+            "22          23        Gokul            3                  77   \n",
+            "23          24       Shreya            8                  97   \n",
+            "24          25        Surya            1                  63   \n",
+            "25          26        Divya            6                  92   \n",
+            "26          27       Naveen            4                  81   \n",
+            "27          28       Swetha            5                  90   \n",
+            "28          29      Karthik            2                  74   \n",
+            "29          30       Janani            7                  95   \n",
+            "\n",
+            "    Screen_Time_Hours  Sleep_Hours  Marks  \n",
+            "0                   6            8     62  \n",
+            "1                   5            8     70  \n",
+            "2                   4            7     78  \n",
+            "3                   3            8     85  \n",
+            "4                   8            6     48  \n",
+            "5                   3            9     91  \n",
+            "6                   6            7     66  \n",
+            "7                   2            9     94  \n",
+            "8                   7            7     55  \n",
+            "9                   4            8     84  \n",
+            "10                  5            8     76  \n",
+            "11                  2            9     97  \n",
+            "12                  9            6     42  \n",
+            "13                  3            8     89  \n",
+            "14                  7            7     61  \n",
+            "15                  4            8     82  \n",
+            "16                  8            6     51  \n",
+            "17                  2            9     92  \n",
+            "18                  5            7     73  \n",
+            "19                  3            8     87  \n",
+            "20                  8            7     53  \n",
+            "21                  4            8     80  \n",
+            "22                  6            7     64  \n",
+            "23                  2            9     96  \n",
+            "24                  9            6     45  \n",
+            "25                  3            8     88  \n",
+            "26                  5            7     71  \n",
+            "27                  4            8     83  \n",
+            "28                  7            7     57  \n",
+            "29                  2            9     93  >\n"
+          ]
+        }
+      ]
+    }
+  ]
+}
